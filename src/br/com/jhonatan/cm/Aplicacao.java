@@ -1,7 +1,7 @@
 package br.com.jhonatan.cm;
 
 import br.com.jhonatan.cm.modelo.Tabuleiro;
-import br.com.jhonatan.cm.visao.TabuleiroConsole;;
+import br.com.jhonatan.cm.visao.TabuleiroConsole;
 
 public class Aplicacao {
 
