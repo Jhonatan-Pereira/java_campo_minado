@@ -78,14 +78,14 @@ public class BotaoCampo extends JButton
 
     setBorder(BorderFactory.createLineBorder(Color.GRAY));
     
-    if(campo.isMarcado()) {
+    if(campo.isMinado()) {
       setBackground(BG_EXPLODIR);
       return;
     }
 
     setBackground(BG_PADRAO);
 
-    switch (campo.minasNaVizinhaca()) {
+    switch (campo.minasNaVizinhanca()) {
       case 1:
         setForeground(TEXTO_VERDE);
         break;
@@ -104,7 +104,7 @@ public class BotaoCampo extends JButton
         setForeground(Color.PINK);
     }
 
-    String valor = !campo.vizinhacaSegura() ? campo.minasNaVizinhaca() + "" : "";
+    String valor = !campo.vizinhancaSegura() ? campo.minasNaVizinhanca() + "" : "";
     setText(valor);
   }
 

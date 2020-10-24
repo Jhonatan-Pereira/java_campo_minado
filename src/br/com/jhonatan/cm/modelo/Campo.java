@@ -9,9 +9,9 @@ public class Campo {
 	private final int linha;
 	private final int coluna;
 	
-	private boolean aberto;
-	private boolean minado;
-	private boolean marcado;
+	private boolean aberto = false;
+	private boolean minado = false;
+	private boolean marcado = false;
 	
   private List<Campo> vizinhos = new ArrayList<>();
   // private List<BiConsumer<Campo, CampoEvento>> obeservadores = new ArrayList<>();
@@ -73,7 +73,7 @@ public class Campo {
       
       setAberto(true);
 			
-			if(vizinhacaSegura()) {
+			if(vizinhancaSegura()) {
 				vizinhos.forEach(v -> v.abrir());
 			}
 			
@@ -83,7 +83,7 @@ public class Campo {
 		return false;
 	}
 	
-	public boolean vizinhacaSegura() {
+	public boolean vizinhancaSegura() {
 		return vizinhos.stream().noneMatch(v -> v.minado);
 	}
 	
@@ -108,7 +108,7 @@ public class Campo {
 	}
 	
 	public boolean isAberto() {
-		return marcado;
+		return aberto;
 	}
 	
 	public boolean isFechado() {
@@ -129,7 +129,7 @@ public class Campo {
 		return desvendado || protegido;
 	}
 	
-	public int minasNaVizinhaca() {
+	public int minasNaVizinhanca() {
 		return (int)vizinhos.stream().filter(v -> v.minado).count();
 	}
 	
